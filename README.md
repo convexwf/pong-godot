@@ -2,7 +2,7 @@
 
 This solution is based on the [mrt-prodz/docker-godot-gdextension-builder](https://github.com/mrt-prodz/docker-godot-gdextension-builder).
 
-<!-- You can check more details on the [doc.md](doc.md). -->
+You can check more details on the [Godot-GDExtension C++ 环境搭建 (Docker+MinGW/跨平台) | Convexwf's Kirakira Blog](https://blog.convexwf.com/zh/2024/05/godot-gdextension-cpp-environment-using-docker-and-mingw.html).
 
 ## Intruction
 
@@ -69,3 +69,4 @@ docker run --rm \
 
 - [mrt-prodz/docker-godot-gdextension-builder: Building Godot 4 GDExtension C++ example with Docker](https://github.com/mrt-prodz/docker-godot-gdextension-builder)
 - [GDExtension C++ example — Godot Engine (stable) documentation in English](https://docs.godotengine.org/en/stable/tutorials/scripting/gdextension/gdextension_cpp_example.html)
+- [Godot-GDExtension C++ 环境搭建 (Docker+MinGW/跨平台) | Convexwf's Kirakira Blog](https://blog.convexwf.com/zh/2024/05/godot-gdextension-cpp-environment-using-docker-and-mingw.html)
