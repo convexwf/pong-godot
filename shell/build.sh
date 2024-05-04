@@ -30,8 +30,6 @@ if [ ! -d $PROJECT_DIR/godot-cpp ]; then
 fi
 cd $PROJECT_DIR/godot-cpp && git pull origin ${GODOT_CPP_VERSION}
 
-cp $PROJECT_DIR/godot-cpp/gdextension/extension_api.json $PROJECT_DIR/
-
 # Try to pull the docker image first, if it fails, build it
 docker pull convexwf/godot-gdextension-cpp-builder || \
     cd $PROJECT_DIR && docker build -t convexwf/godot-gdextension-cpp-builder .
@@ -45,4 +43,4 @@ fi
 docker run --rm \
     -v ${AUTO_SLASH}${PROJECT_DIR}:/app \
     convexwf/godot-gdextension-cpp-builder \
-    bash -c "cd /app/godot-cpp && source activate gde && scons platform=${BUILD_PLATFORM} custom_api_file=../extension_api.json"
+    bash -c "cd /app/ && source activate gde && scons platform=${BUILD_PLATFORM}"

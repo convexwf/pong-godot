@@ -53,7 +53,7 @@ The source files in the `src` directory of this repository are copies from the G
 docker run --rm \
     -v /${PROJECT_DIR}:/app \
     convexwf/godot-gdextension-cpp-builder \
-    bash -c "cd /app/godot-cpp && source activate gde && scons platform=windows custom_api_file=../extension_api.json"
+    bash -c "cd /app/godot-cpp && source activate gde && scons platform=windows"
 ```
 
 **[Linux]**
@@ -62,7 +62,7 @@ docker run --rm \
 docker run --rm \
     -v $(pwd):/app \
     convexwf/godot-gdextension-cpp-builder \
-    bash -c "cd /app/godot-cpp && source activate gde && scons platform=linux custom_api_file=../extension_api.json"
+    bash -c "cd /app/godot-cpp && source activate gde && scons platform=linux"
 ```
 
 ## Reference
