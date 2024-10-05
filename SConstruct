@@ -2,7 +2,7 @@
 import os
 import sys
 
-GODOT_PROJECT_NAME = "demo"
+GODOT_PROJECT_NAME = "pong"
 env = SConscript("godot-cpp/SConstruct")
 
 # For reference:
