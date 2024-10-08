@@ -378,6 +378,4 @@ $RECYCLE.BIN/
 *.msp
 *.lnk
 *.generated.props
-
-# repo specific
-godot-cpp
+*.wasm
