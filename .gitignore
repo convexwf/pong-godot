@@ -379,3 +379,6 @@ $RECYCLE.BIN/
 *.lnk
 *.generated.props
 *.wasm
+
+*.godot
+*.import
