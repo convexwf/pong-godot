@@ -21,5 +21,5 @@ android.debug.x86_64 = "res://gdextension/libgdexample.android.template_debug.x8
 android.release.x86_64 = "res://gdextension/libgdexample.android.template_release.x86_64.so"
 android.debug.arm64 = "res://gdextension/libgdexample.android.template_debug.arm64.so"
 android.release.arm64 = "res://gdextension/libgdexample.android.template_release.arm64.so"
-web.debug="res://bin/libgdexample.web.template_debug.wasm32.wasm"
-web.release="res://bin/libgdexample.web.template_release.wasm32.wasm"
+web.debug="res://gdextension/libgdexample.web.template_debug.wasm32.wasm"
+web.release="res://gdextension/libgdexample.web.template_release.wasm32.wasm"

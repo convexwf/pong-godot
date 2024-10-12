@@ -77,7 +77,7 @@ exec_docker_container() {
         docker run --rm \
             -v ${AUTO_SLASH}${PROJECT_DIR}:/app \
             godot-${platform}:$GODOT_CPP_VERSION \
-            bash -c "source /root/emsdk/emsdk_env.sh && cd /app && scons platform=${platform}"
+            bash -c "source /root/emsdk/emsdk_env.sh && cd /app && scons platform=web dlink_enabled=yes target=template_debug"
     else
         docker run --rm \
             -v ${AUTO_SLASH}${PROJECT_DIR}:/app \

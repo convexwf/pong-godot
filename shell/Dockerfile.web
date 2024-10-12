@@ -7,4 +7,4 @@ RUN git clone --branch ${EMSCRIPTEN_VERSION} --progress https://github.com/emscr
     emsdk/emsdk install ${EMSCRIPTEN_VERSION} && \
     emsdk/emsdk activate ${EMSCRIPTEN_VERSION}
 
-CMD /bin/bash -c "source /root/emsdk/emsdk_env.sh && /bin/bash"
+CMD /bin/bash
