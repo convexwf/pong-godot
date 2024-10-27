@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dsp5moq7coakv"]
 
-[ext_resource type="FontFile" uid="uid://te4p2elhweex" path="res://Kenney Future.ttf" id="1"]
+[ext_resource type="FontFile" uid="uid://bq7gm55acj5ju" path="res://fonts/KenneyFuture.ttf" id="1"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1024, 52)

@@ -12,51 +12,64 @@
 #include <godot_cpp/classes/marker2d.hpp>
 #include <godot_cpp/classes/label.hpp>
 
-class PongGame : public godot::Control
-{
+class PongGame : public godot::Control {
     GDCLASS(PongGame, godot::Control)
 
 public:
-
     PongGame();
     ~PongGame() override;
 
     static void _bind_methods();
-    void _notification( int inWhat );
+
+    void _notification(int inWhat);
 
     void _ready() override;
 
-    void SpawnBall();
-
-    void UpdateScoreLabel();
-
     void _physics_process(double delta) override;
 
-    void ProcessBallMovement(double delta);
+    // void SpawnBall();
 
-    void ProcessAiMovement(double delta);
+    // void UpdateScoreLabel();
 
-    void ProcessPlayerMovement(double delta);
+    // void ProcessBallMovement(double delta);
 
-// script variables
+    // void ProcessAiMovement(double delta);
+
+    // void ProcessPlayerMovement(double delta);
+
 public:
-    const float AI_SPEED = 280.0f;
-    const float PLAYER_SPEED = 280.0f;
-    float ball_speed = 300.0f;
-    const float BALL_SPEED_GAME_START = 300.0f;
-    const float BALL_SPEED_PLAYER_BOUNCE_INCREASE = 20.0f;
+    float player_speed_ = 0.0f;
+    float ai_speed_ = 0.0f;
+    float ball_speed_ = 0.0f;
+    godot::Vector2 ball_direction_;
 
-    godot::Vector2 ball_direction;
-    godot::Marker2D* ball_spawn_pos;
+    int32_t score_player_ = 0;
+    int32_t score_ai_ = 0;
 
-    float ball_pos_player_score = 0;
-    float ball_pos_ai_score = 0;
+    godot::CharacterBody2D* body_player_ = nullptr;
+    godot::CharacterBody2D* body_ai_ = nullptr;
+    godot::CharacterBody2D* body_ball_ = nullptr;
 
-    godot::CharacterBody2D* body_ball = nullptr;
-    godot::CharacterBody2D* body_player = nullptr;
-    godot::CharacterBody2D* body_ai = nullptr;
+    godot::Label* score_board_player_ = nullptr;
+    godot::Label* score_board_ai_ = nullptr;
 
-    int score_player = 0;
-    int score_ai = 0;
-    godot::Label* score_label = nullptr;
+    // const float AI_SPEED = 280.0f;
+    // const float PLAYER_SPEED = 280.0f;
+    // float ball_speed = 300.0f;
+    // const float BALL_SPEED_GAME_START = 300.0f;
+    // const float BALL_SPEED_PLAYER_BOUNCE_INCREASE = 20.0f;
+
+    // godot::Vector2 ball_direction;
+    // godot::Marker2D* ball_spawn_pos;
+
+    // float ball_pos_player_score = 0;
+    // float ball_pos_ai_score = 0;
+
+    // godot::CharacterBody2D* body_ball = nullptr;
+    // godot::CharacterBody2D* body_player = nullptr;
+    // godot::CharacterBody2D* body_ai = nullptr;
+
+    // int score_player = 0;
+    // int score_ai = 0;
+    // godot::Label* score_label = nullptr;
 };
