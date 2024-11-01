@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c278dsmai871k"]
 
-[ext_resource type="FontFile" uid="uid://bq7gm55acj5ju" path="res://fonts/KenneyFuture.ttf" id="1_3uvpc"]
+[ext_resource type="FontFile" uid="uid://bmd7d2c5cnfq3" path="res://fonts/KenneyFuture.ttf" id="1_3uvpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0thuc"]
 resource_name = "boundary_shape"
@@ -16,12 +16,10 @@ radius = 30.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_4uonu"]
 font = ExtResource("1_3uvpc")
-font_size = 30
+font_size = 40
 font_color = Color(0, 0, 0, 1)
 
 [node name="PongGame" type="PongGame"]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -35,10 +33,12 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundary_top"]
 shape = SubResource("RectangleShape2D_0thuc")
-debug_color = Color(0.576471, 0.403922, 0.454902, 0.992157)
 
 [node name="ColorRect" type="ColorRect" parent="boundary_top"]
-size = Vector2(1280, 80)
+offset_left = -640.0
+offset_top = -40.0
+offset_right = 640.0
+offset_bottom = 40.0
 color = Color(0.576471, 0.403922, 0.454902, 0.992157)
 
 [node name="boundary_bottom" type="StaticBody2D" parent="."]
@@ -47,34 +47,58 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundary_bottom"]
 shape = SubResource("RectangleShape2D_0thuc")
-debug_color = Color(0.576471, 0.403922, 0.454902, 0.992157)
+
+[node name="ColorRect" type="ColorRect" parent="boundary_bottom"]
+offset_left = -640.0
+offset_top = -40.0
+offset_right = 640.0
+offset_bottom = 40.0
+color = Color(0.576471, 0.403922, 0.454902, 0.992157)
 
 [node name="paddle_player" type="CharacterBody2D" parent="."]
 position = Vector2(60, 400)
 metadata/_edit_group_ = true
-metadata/speed = 200.0
+metadata/speed = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paddle_player"]
 shape = SubResource("RectangleShape2D_nl81y")
-debug_color = Color(0.105882, 0.729412, 0.454902, 0.992157)
+
+[node name="ColorRect" type="ColorRect" parent="paddle_player"]
+offset_left = -30.0
+offset_top = -130.0
+offset_right = 30.0
+offset_bottom = 130.0
+color = Color(0.105882, 0.729412, 0.454902, 0.992157)
 
 [node name="paddle_enemy" type="CharacterBody2D" parent="."]
 position = Vector2(1220, 550)
 metadata/_edit_group_ = true
-metadata/speed = 200.0
+metadata/speed = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="paddle_enemy"]
 shape = SubResource("RectangleShape2D_nl81y")
-debug_color = Color(0.776471, 0.168627, 0.454902, 0.988235)
+
+[node name="ColorRect" type="ColorRect" parent="paddle_enemy"]
+offset_left = -30.0
+offset_top = -130.0
+offset_right = 30.0
+offset_bottom = 130.0
+color = Color(0.776471, 0.168627, 0.454902, 0.988235)
 
 [node name="ball" type="CharacterBody2D" parent="."]
 position = Vector2(640, 480)
 metadata/_edit_group_ = true
-metadata/speed = 300.0
+metadata/speed = 400.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
 shape = SubResource("CircleShape2D_cx481")
-debug_color = Color(0.92549, 0.705882, 0.266667, 0.992157)
+
+[node name="ColorRect" type="ColorRect" parent="ball"]
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.92549, 0.705882, 0.266667, 0.992157)
 
 [node name="score_player" type="Label" parent="."]
 layout_mode = 0
@@ -82,12 +106,14 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 220.0
 offset_bottom = 70.0
+text = "Player: 0"
 label_settings = SubResource("LabelSettings_4uonu")
 
 [node name="score_enemy" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1050.0
+offset_left = 940.0
 offset_top = 20.0
-offset_right = 1250.0
+offset_right = 1173.0
 offset_bottom = 70.0
+text = "Enemy: 0"
 label_settings = SubResource("LabelSettings_4uonu")

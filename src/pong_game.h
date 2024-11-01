@@ -29,13 +29,14 @@ public:
 
     // void SpawnBall();
 
-    // void UpdateScoreLabel();
+    void UpdateScoreLabel();
 
-    // void ProcessBallMovement(double delta);
+    void ProcessBallMovement(double delta);
 
-    // void ProcessAiMovement(double delta);
+    void ProcessAiMovement(double delta);
 
-    // void ProcessPlayerMovement(double delta);
+    void ProcessPlayerMovement(double delta);
+
 
 public:
     float player_speed_ = 0.0f;
