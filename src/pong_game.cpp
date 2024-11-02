@@ -57,6 +57,10 @@ void PongGame::_ready() {
         ai_speed_ = body_ai_->get_meta("speed");
     }
 
+    player_pos_ = body_player_->get_global_position();
+    ai_pos_ = body_ai_->get_global_position();
+    ball_spawn_pos_ = godot::Vector2((player_pos_.x + ai_pos_.x) / 2, (player_pos_.y + ai_pos_.y) / 2);
+
     // ball_pos_ai_score =
     // get_node<godot::Marker2D>("AI_Win_Position")->get_global_position().x;
     // ball_pos_player_score =
@@ -70,22 +74,19 @@ void PongGame::_physics_process(double delta) {
     if (godot::Engine::get_singleton()->is_editor_hint()) {
         return;
     }
-
     ProcessPlayerMovement(delta);
     ProcessAiMovement(delta);
     ProcessBallMovement(delta);
 }
 
-// void PongGame::SpawnBall() {
-//     ball_speed = BALL_SPEED_GAME_START;
-//     body_ball->set_global_position(ball_spawn_pos->get_global_position());
-//     float ball_horizontal_direction = 1;
-//     if (godot::UtilityFunctions::randf() >= 0.5) ball_horizontal_direction = -1;
-
-//     ball_direction =
-//         godot::Vector2(ball_horizontal_direction, godot::UtilityFunctions::randf_range(-1, 1))
-//             .normalized();
-// }
+void PongGame::SpawnBall() {
+    body_ball_->set_global_position(ball_spawn_pos_);
+    float ball_horizontal_direction = 1;
+    if (godot::UtilityFunctions::randf() >= 0.5) ball_horizontal_direction = -1;
+    ball_direction_ =
+        godot::Vector2(ball_horizontal_direction, godot::UtilityFunctions::randf_range(-1, 1))
+            .normalized();
+}
 
 void PongGame::UpdateScoreLabel() {
     score_board_player_->set_text(godot::UtilityFunctions::str("Player: ", score_player_));
@@ -112,16 +113,16 @@ void PongGame::ProcessBallMovement(double delta) {
             UpdateScoreLabel();
         }
     }
-    // if (body_ball_->get_global_position().x < ball_pos_ai_score) {
-    //     score_ai += 1;
-    //     UpdateScoreLabel();
-    //     SpawnBall();
-    // }
-    // else if (body_ball_->get_global_position().x > ball_pos_player_score) {
-    //     score_player += 1;
-    //     UpdateScoreLabel();
-    //     SpawnBall();
-    // }
+    if (body_ball_->get_global_position().x < player_pos_.x) {
+        score_ai_ += 100;
+        UpdateScoreLabel();
+        SpawnBall();
+    }
+    else if (body_ball_->get_global_position().x > ai_pos_.x) {
+        score_player_ += 100;
+        UpdateScoreLabel();
+        SpawnBall();
+    }
 }
 
 void PongGame::ProcessPlayerMovement(double delta) {

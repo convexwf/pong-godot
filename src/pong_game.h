@@ -27,7 +27,7 @@ public:
 
     void _physics_process(double delta) override;
 
-    // void SpawnBall();
+    void SpawnBall();
 
     void UpdateScoreLabel();
 
@@ -43,6 +43,10 @@ public:
     float ai_speed_ = 0.0f;
     float ball_speed_ = 0.0f;
     godot::Vector2 ball_direction_;
+
+    godot::Vector2 player_pos_;
+    godot::Vector2 ai_pos_;
+    godot::Vector2 ball_spawn_pos_;
 
     int32_t score_player_ = 0;
     int32_t score_ai_ = 0;

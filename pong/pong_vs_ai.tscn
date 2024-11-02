@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c278dsmai871k"]
 
-[ext_resource type="FontFile" uid="uid://bmd7d2c5cnfq3" path="res://fonts/KenneyFuture.ttf" id="1_3uvpc"]
+[ext_resource type="FontFile" uid="uid://b4rp2uuu72kuw" path="res://fonts/KenneyFuture.ttf" id="1_3uvpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0thuc"]
 resource_name = "boundary_shape"
