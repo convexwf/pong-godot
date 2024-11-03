@@ -48,7 +48,9 @@ void PongGame::_ready() {
     score_board_ai_ = get_node<godot::Label>("score_enemy");
 
     if (nullptr != body_ball_ && body_ball_->has_meta("speed")) {
-        ball_speed_ = body_ball_->get_meta("speed");
+        ball_init_speed_ = body_ball_->get_meta("speed");
+        ball_speed_ = ball_init_speed_;
+        ball_speed_increase_ = body_ball_->get_meta("speed_increase");
     }
     if (nullptr != body_player_ && body_player_->has_meta("speed")) {
         player_speed_ = body_player_->get_meta("speed");
@@ -81,6 +83,7 @@ void PongGame::_physics_process(double delta) {
 
 void PongGame::SpawnBall() {
     body_ball_->set_global_position(ball_spawn_pos_);
+    ball_speed_ = ball_init_speed_;
     float ball_horizontal_direction = 1;
     if (godot::UtilityFunctions::randf() >= 0.5) ball_horizontal_direction = -1;
     ball_direction_ =
@@ -107,10 +110,12 @@ void PongGame::ProcessBallMovement(double delta) {
         if (collision_info->get_collider() == body_player_) {
             score_player_ += 1;
             UpdateScoreLabel();
+            ball_speed_ += ball_speed_increase_;
         }
         else if (collision_info->get_collider() == body_ai_) {
             score_ai_ += 1;
             UpdateScoreLabel();
+            ball_speed_ += ball_speed_increase_;
         }
     }
     if (body_ball_->get_global_position().x < player_pos_.x) {

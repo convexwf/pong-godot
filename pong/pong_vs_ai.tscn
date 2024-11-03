@@ -89,6 +89,7 @@ color = Color(0.776471, 0.168627, 0.454902, 0.988235)
 position = Vector2(640, 480)
 metadata/_edit_group_ = true
 metadata/speed = 400.0
+metadata/speed_increase = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
 shape = SubResource("CircleShape2D_cx481")

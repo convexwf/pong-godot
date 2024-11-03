@@ -41,6 +41,8 @@ public:
 public:
     float player_speed_ = 0.0f;
     float ai_speed_ = 0.0f;
+    float ball_init_speed_ = 0.0f;
+    float ball_speed_increase_ = 0.0f;
     float ball_speed_ = 0.0f;
     godot::Vector2 ball_direction_;
 
